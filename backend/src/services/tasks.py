@@ -12,7 +12,7 @@ class TasksService:
         new_task = await self.db.tasks.create_task(data=data)
         await self.db.commit()
         return new_task
-    
+
     async def get_tasks(self) -> list[Task]:
         return await self.db.tasks.get_tasks()
 

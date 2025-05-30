@@ -3,6 +3,7 @@ from sqlalchemy.types import Integer, String, Boolean
 
 from backend.src.database import Base
 
+
 class TasksORM(Base):
     __tablename__ = "tasks"
 

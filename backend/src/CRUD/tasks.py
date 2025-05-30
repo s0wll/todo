@@ -13,13 +13,11 @@ class TasksCRUD:
         result = await self.session.execute(add_stmt)
         model = Task.model_validate(result.scalars().one(), from_attributes=True)
         return model
-    
+
     async def get_tasks(self) -> list[Task]:
         query = select(TasksORM)
         result = await self.session.execute(query)
-        models = [
-            Task.model_validate(one, from_attributes=True) for one in result.scalars().all()
-        ]
+        models = [Task.model_validate(one, from_attributes=True) for one in result.scalars().all()]
         return models
 
     async def delete_task(self, task_id: int) -> None:

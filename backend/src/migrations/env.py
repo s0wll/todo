@@ -7,7 +7,7 @@ from alembic import context
 
 from backend.src.config import settings
 from backend.src.database import Base
-from backend.src.models.tasks import TasksORM # noqa
+from backend.src.models.tasks import TasksORM  # noqa
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -70,9 +70,7 @@ def run_migrations_online() -> None:
     )
 
     with connectable.connect() as connection:
-        context.configure(
-            connection=connection, target_metadata=target_metadata
-        )
+        context.configure(connection=connection, target_metadata=target_metadata)
 
         with context.begin_transaction():
             context.run_migrations()
