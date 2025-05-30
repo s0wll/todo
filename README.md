@@ -29,7 +29,7 @@ docker-compose up --build
 2. Доступ к приложению:
 
 - Frontend: [http://localhost:4173](http://localhost:4173)
-- Backend API: [http://localhost:8000](http://localhost:8000)
+- Backend API (документация): [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ## Особенности
 
