@@ -1,5 +1,5 @@
 from backend.src.utils.db_manager import DBManager
-from backend.src.schemas.tasks import Task, TaskAdd
+from backend.src.schemas.tasks import Task, TaskAdd, TaskUpdate
 
 
 class TasksService:
@@ -15,3 +15,12 @@ class TasksService:
     
     async def get_tasks(self) -> list[Task]:
         return await self.db.tasks.get_tasks()
+
+    async def delete_task(self, task_id: int) -> None:
+        await self.db.tasks.delete_task(task_id)
+        await self.db.commit()
+
+    async def update_task(self, task_id: int, data: TaskUpdate) -> Task:
+        updated_task = await self.db.tasks.update_task(task_id, data)
+        await self.db.commit()
+        return updated_task

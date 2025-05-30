@@ -8,3 +8,7 @@ class TaskAdd(BaseModel):
 
 class Task(TaskAdd):
     id: int
+
+
+class TaskUpdate(BaseModel):
+    completed: bool = Field(description="Статус выполнения задачи")
